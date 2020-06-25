@@ -1,0 +1,29 @@
+{
+  "name": "express-snapmaster",
+  "version": "0.1.8",
+  "description": "Express server for SnapMaster Actions",
+  "main": "./lib",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/snapmaster-io/express-snapmaster.git"
+  },
+  "author": {
+    "name": "Omri Gazitt",
+    "email": "ogazitt@gmail.com",
+    "url": "https://www.snapmaster.io/"
+  },
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/snapmaster-io/express-snapmaster/issues"
+  },
+  "homepage": "https://github.com/snapmaster-io/express-snapmaster#readme",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "cors": "^2.8.5",
+    "express-snapmaster-middleware": "^0.1.9",
+    "yaml": "^1.10.0"
+  }
+}
