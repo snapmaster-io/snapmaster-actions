@@ -68,7 +68,3 @@ actions:
       required: true
 ```
 
-## Running / testing locally
-
-`npm run dev` in the root directory of this project will run an HTTP server on localhost:5555.
-
