@@ -25,17 +25,20 @@ This package will also expose all of the actions as HTTP routes.  See examples b
 
 To install the package: 
 
-`npm install --save snapmaster-actions`
-
-To implement an action as a Cloud Function:
-
+```bash
+npm install --save snapmaster-actions
 ```
+
+To implement an action as a Cloud Function, here is a sample `index.js` file:
+
+```javascript
 // import the snapmaster-actions package
 const snapmaster = require('snapmaster-actions');
 
 // implement an action called "hello"
 function helloHandler(req, res) {
-  res.status(200).send("hello, world!");
+  const { greeting } = req.body;
+  res.status(200).send(`hello, ${greeting || "world!"}`);
 }
 
 // bind the "hello" action to the "/hello" route, and the "helloHandler" function
@@ -44,27 +47,24 @@ exports.snapmaster = snapmaster({
 });
 ```
 
+That's it!
+
 ## actions.yml
 
-The `actions.yml` file must be present in the root directory.  Here is a sample:
+The `actions.yml` file must be present in the root directory.  Here is a sample 
+for the `hello` example above:
 
-```
+```yml
 ---
 version: actions-v1alpha1 
-name: slack
-description: Slack Actions
+name: hello
+description: Hello Action
 actions:
-  - name: send
-    description: send a message to a channel 
+  - name: hello
+    description: return a greeting 
     parameters:
-    - name: workspace
-      description: workspace name
-      required: true 
-    - name: channel
-      description: channel to send to
-      required: true
-    - name: message
-      description: message to send
-      required: true
+    - name: greeting
+      description: greeting to echo
+      required: false
 ```
 
